@@ -42,7 +42,7 @@ for i in range(len(assembly_list)):
         instruction=instruction[0:1]+instruction[1].split(',')
     instruction_list.append(instruction)
 
-Assembly_inst=    ['NOP','ADD','SUB','XOR','MUL','DIV','JUMPZ','JUMPNZ','SUBI','ADDI','WRITE','READ','INCRE','MEMADD','MOV','CLAC','STOP']
+Assembly_inst=['NOP','ADD','SUB','XOR','MUL','DIV','JUMPZ','JUMPNZ','SUBI','ADDI','WRITE','READ','INCRE','MEMADD','MOV','CLAC','STOP']
 Opcode_bin_code=['0000','0001','0010','0011','0100','0101','0110','0111','1000','1001','1010','1011','1100','1101','1110','1111','1111','11111111']
 operands=['MAR','MDR','PC','R1','R2','R3','R4','R5','R6','R7','R8','AC','R_I_1','R_I_2','R_I_3']
 operand_dic={'MAR': '0000','MDR': '0001','PC': '0010','R1': '0011','R2': '0100','R3': '0101','R4': '0110','R5': '0111','R6': '1000','R7': '1001','R8': '1010','R_I_1': '1011','R_I_2': '1100','R_I_3': '1101','AC': '1110'}
