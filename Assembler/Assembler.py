@@ -42,7 +42,7 @@ for i in range(len(assembly_list)):
         instruction=instruction[0:1]+instruction[1].split(',')
     instruction_list.append(instruction)
 
-Assembly_inst=    ['NOP','ADD','SUB','XOR','MUL','DIV','JUMPZ','JUMPNZ','SUBI','ADDI','WRITE','READ','INCRE','MEMADD','MOV','CLAC','STOP']
+Assembly_inst=['NOP','ADD','SUB','XOR','MUL','DIV','JUMPZ','JUMPNZ','SUBI','ADDI','WRITE','READ','INCRE','MEMADD','MOV','CLAC','STOP']
 Opcode_bin_code=['0000','0001','0010','0011','0100','0101','0110','0111','1000','1001','1010','1011','1100','1101','1110','1111','1111','11111111']
 operands=['MAR','MDR','PC','R1','R2','R3','R4','R5','R6','R7','R8','AC','R_I_1','R_I_2','R_I_3']
 operand_dic={'MAR': '0000','MDR': '0001','PC': '0010','R1': '0011','R2': '0100','R3': '0101','R4': '0110','R5': '0111','R6': '1000','R7': '1001','R8': '1010','R_I_1': '1011','R_I_2': '1100','R_I_3': '1101','AC': '1110'}
@@ -190,10 +190,7 @@ def macinecodegenerate(instruction_list):
     for i in range(len(instruction_list)):
         if len(instruction_list[i])>0:
             if instruction_list[i][0]=='JUMPZ' or instruction_list[i][0]=='JUMPNZ':
-                #print ("________________",machine_no[int(instruction_list[i][1])])
-                #print ("________________",(instruction_list[i][1]))
                 binaryno=str(bin(machine_no[int(instruction_list[i][1])]))[2:]
-                #print (machinecode[machine_no[i]],"wqwqw")
                 machinecode[machine_no[i]]=machinecode[machine_no[i]][0:4]+zero_str[:12-len(binaryno)]+binaryno   
     return instruction_list_without_comments,machinecode
 instruction_list_without_comments,machinecode=macinecodegenerate(instruction_list)       
@@ -245,7 +242,7 @@ for checkline in range(len(instruction_list)):
         elif instruction_list[checkline][0]=="READ" :
             if instruction_list[checkline+1][0] in Assembly_inst[1:6]:
                 if "MDR"==instruction_list[checkline+1][3] or "MDR"==instruction_list[checkline+1][2]:
-                    #avoid_cache_hazard(checkline)
+               
                     new_code.append(checkline)
                     new_code.append("NOP")
                 else:
